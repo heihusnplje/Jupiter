@@ -40,8 +40,13 @@ public interface RegistryServer extends RegistryMonitor {
      */
     @SuppressWarnings("unchecked")
     class Default {
-
+    	/**
+    	 * 注册类的类型
+    	 */
         private static final Class<RegistryServer> defaultRegistryClass;
+        /**
+         * 注册类的所有构造函数参数类型列表
+         */
         private static final List<Class<?>[]> allConstructorsParameterTypes;
 
         static {
@@ -80,7 +85,11 @@ public interface RegistryServer extends RegistryMonitor {
         public static RegistryServer createRegistryServer(SocketAddress address, int nWorkers) {
             return newInstance(address, nWorkers);
         }
-
+        /**
+         * 根据返射生成注册类对象
+         * @param parameters
+         * @return
+         */
         private static RegistryServer newInstance(Object... parameters) {
             if (defaultRegistryClass == null || allConstructorsParameterTypes == null) {
                 throw new UnsupportedOperationException("Unsupported default registry");
