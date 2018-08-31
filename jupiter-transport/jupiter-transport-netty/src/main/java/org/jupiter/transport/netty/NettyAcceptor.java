@@ -196,6 +196,7 @@ public abstract class NettyAcceptor implements JAcceptor {
     public abstract void setIoRatio(int bossIoRatio, int workerIoRatio);
 
     /**
+     * 创建netty连接，绑定IP地址
      * Create a new {@link io.netty.channel.Channel} and bind it.
      */
     protected abstract ChannelFuture bind(SocketAddress localAddress);

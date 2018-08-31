@@ -129,7 +129,9 @@ public final class DefaultRegistryServer extends NettyTcpAcceptor implements Reg
         JConfig child = configGroup().child();
         child.setOption(JOption.SO_REUSEADDR, true);
     }
-
+    /**
+     * 创建服务端netty连接，绑定地址
+     */
     @Override
     public ChannelFuture bind(SocketAddress localAddress) {
         ServerBootstrap boot = bootstrap();
